@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comparador de planes de trabajo: Alcaldía de Quito</title>
+<style>
+:root{--bg:#f2f4f7;--surface:#fff;--ink:#14213d;--muted:#5b6578;--line:#d5dae3;--accent:#1d4ed8;--bar:#f2b705;--barbg:#e6e9ef;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--surface:#182136;--ink:#eef1f7;--muted:#9aa5ba;--line:#2b3753;--accent:#7aa2ff;--bar:#f2b705;--barbg:#26324d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1624;--surface:#182136;--ink:#eef1f7;--muted:#9aa5ba;--line:#2b3753;--accent:#7aa2ff;--bar:#f2b705;--barbg:#26324d;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:900px;margin:0 auto;padding:20px 16px 48px}
+h1{font:700 clamp(26px,5vw,36px)/1.15 Georgia,"Times New Roman",serif;margin:8px 0}
+h2{font:700 22px/1.2 Georgia,serif;margin:0 0 6px}
+h3{font:700 17px/1.3 Georgia,serif;margin:14px 0 6px}
+p{margin:0 0 10px}
+a{color:var(--accent)}
+.lead{color:var(--muted);max-width:68ch}
+.step{display:inline-block;background:var(--ink);color:var(--bg);font:700 12px/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:5px;margin-bottom:8px}
+section,details.about{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:16px}
+details.about{padding:12px 18px}
+summary{cursor:pointer;font-weight:600;color:var(--accent)}
+details.sub{border-top:1px solid var(--line);padding:10px 0}
+details.sub:first-of-type{margin-top:12px}
+button{font:inherit;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:8px;padding:8px 14px;cursor:pointer}
+button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.pool{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
+.pool button{font-weight:600;padding:10px 16px}
+.pool button:hover{background:var(--accent);color:var(--surface)}
+.rk{list-style:none;margin:8px 0 0;padding:0}
+.rk li{display:grid;grid-template-columns:34px 1fr auto auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.rk li:first-child{border-top:0}
+.rk .n{font:700 24px/1 Georgia,serif;text-align:center}
+.rk .t{font-weight:600}
+.rk small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.rk .w{font-size:13px;color:var(--muted);white-space:nowrap}
+.rk .b{display:flex;gap:6px}
+.rk button{padding:4px 10px}
+.rk button:disabled{opacity:.35;cursor:default}
+.empty{color:var(--muted)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+th,td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:center}
+th:first-child,td:first-child{text-align:left;font-weight:600;white-space:nowrap}
+td input{width:50px;padding:4px;text-align:center;font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:5px}
+table.rb{min-width:0}
+table.rb th,table.rb td{text-align:left;vertical-align:top;white-space:normal}
+table.rb td:first-child{white-space:nowrap}
+.ev dl{margin:8px 0 0;display:grid;grid-template-columns:170px 1fr;gap:6px 12px;font-size:14px}
+.ev dt{font-weight:600}
+.ev dd{margin:0;color:var(--muted)}
+.ev .cr{color:var(--ink);font-size:13px;margin-top:2px}
+.ev .fi{grid-column:1/-1;font-size:13px;border-top:1px dashed var(--line);padding-top:6px;color:var(--ink)}
+@media (max-width:560px){.ev dl{grid-template-columns:1fr}}
+.row{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.rank{font:700 28px/1 Georgia,serif;text-align:center;padding-top:2px}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.name{font-weight:700;font-size:18px}
+.party{color:var(--muted);font-size:14px}
+.pts{font-variant-numeric:tabular-nums;font-weight:700}
+.track{height:12px;background:var(--barbg);border-radius:6px;margin:6px 0;overflow:hidden}
+.fill{height:100%;background:var(--bar);border-radius:6px;transition:width .35s}
+.chips{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--muted)}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:1px 9px}
+.pdf{display:inline-block;margin-top:6px;font-size:14px}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Comparador de planes de trabajo: Alcaldía de Quito</h1>
+<p class="lead">Un juego de 3 pasos para comparar qué tan concretos y verificables son los planes de las 10 candidaturas.</p>
+
+<details class="about">
+<summary>Acerca de este comparador</summary>
+<h3>Qué hace</h3>
+<p>Ordena los planes según qué tan concretos, medibles y verificables son en los temas que cada persona elige.</p>
+<h3>Qué no hace</h3>
+<p>No recomienda ninguna candidatura. No evalúa trayectoria, honestidad ni capacidad de cumplir, y no predice resultados. Una nota alta no significa que el plan sea mejor, solo que es más concreto.</p>
+<h3>Reglas iguales para todas las candidaturas</h3>
+<p>Mismos 6 criterios para todos los planes y todos los temas, aplicados solo sobre el texto de cada plan. Las candidaturas se muestran en orden alfabético por apellido. Los temas los elige cada persona.</p>
+<h3>Límites</h3>
+<p>Pueden existir errores de lectura, sobre todo en los planes escaneados, que se leyeron con reconocimiento de texto. Cada nota muestra su evidencia y se puede cambiar en el paso 2.</p>
+<h3>Fuente oficial</h3>
+<p>Los planes completos están en el sitio del Consejo Nacional Electoral: <a href="https://votoinformado.cne.gob.ec/voto-informado/" target="_blank" rel="noopener">Voto Informado</a> (también en la aplicación CNE App). Ruta: Elecciones Seccionales y CPCCS 2027, provincia Pichincha, cantón Quito, dignidad Alcalde.</p>
+<p class="empty">Versión del 17 de noviembre de 2026.</p>
+</details>
+
+<section aria-labelledby="t1">
+<span class="step">Paso 1 de 3</span>
+<h2 id="t1">Elige lo que más te importa</h2>
+<p class="lead">Toca los temas en orden: primero el que más te importa, después el siguiente. Puedes elegir todos o solo algunos; los que no elijas no cuentan. Los botones cambian de orden en cada visita para que ninguno tenga ventaja.</p>
+<div class="pool" id="pool"></div>
+<h3>Tu orden</h3>
+<ol class="rk" id="rk"></ol>
+<p class="empty" id="rkEmpty">Aún no elegiste ningún tema.</p>
+<p style="margin-top:12px"><button id="resetW" type="button">Borrar mi orden</button></p>
+</section>
+
+<section aria-labelledby="t2">
+<span class="step">Paso 2 de 3</span>
+<h2 id="t2">Mira cómo se calificó cada plan</h2>
+<p class="lead">Cada plan recibió una nota de 0 a 10 en cada tema. La nota mide qué tan concreto y verificable es lo que el plan escribió. Si no estás de acuerdo con una nota, puedes cambiarla en la tabla y el resultado se actualiza.</p>
+<div class="scroll"><table id="tbl"></table></div>
+<p style="margin-top:12px"><button id="resetS" type="button">Volver a las notas originales</button></p>
+<details class="sub"><summary>Cómo se calcula la nota</summary>
+<p class="lead" style="margin-top:8px">Se suman puntos por criterios que se comprueban en el texto del plan. Son los mismos para todos.</p>
+<div class="scroll"><table class="rb"><tr><th>Criterio</th><th>Puntos</th><th>Se cumple cuando</th></tr>
+<tr><td>Solo mención</td><td>1</td><td>El plan nombra el tema pero no define ninguna acción o programa propio. Reemplaza al criterio siguiente.</td></tr>
+<tr><td>Acción concreta</td><td>2</td><td>Define al menos una acción, programa o instrumento identificable.</td></tr>
+<tr><td>3 o más acciones</td><td>2</td><td>Define tres o más acciones o programas distintos para el tema.</td></tr>
+<tr><td>Meta con cifra</td><td>3</td><td>Fija una meta que permite comprobar el cumplimiento: un número, un porcentaje, “100 %”, kilómetros, un plazo máximo o una obra con fecha.</td></tr>
+<tr><td>Indicador</td><td>1</td><td>Define un indicador o meta de seguimiento del tema, aunque no tenga cifra.</td></tr>
+<tr><td>Plazo propio</td><td>1</td><td>Ubica las acciones del tema en un plazo más preciso que 2027–2031: un año, una fase o los primeros 100 días.</td></tr>
+<tr><td>Costo o financiamiento</td><td>1</td><td>Asigna al tema un monto o un mecanismo concreto de financiamiento.</td></tr>
+<tr><td>Máximo</td><td>10</td><td>Ejemplo: 6 = acción concreta (2) + 3 o más acciones (2) + indicador (1) + plazo propio (1).</td></tr></table></div>
+<p class="lead">No cuentan como meta con cifra: “reducir”, “incrementar” o “fortalecer” sin número, ni el plazo general 2027–2031. Cada meta se cuenta en un solo tema: el bajo el cual el propio plan la clasifica.</p>
+</details>
+<details class="sub"><summary>Ejemplos tomados de los planes</summary>
+<div class="scroll"><table class="rb" id="ex" style="margin-top:8px"></table></div>
+</details>
+<details class="sub ev"><summary>Qué dice cada plan, tema por tema</summary><div id="ev"></div></details>
+</section>
+
+<section aria-labelledby="t3" aria-live="polite">
+<span class="step">Paso 3 de 3</span>
+<h2 id="t3">Resultados</h2>
+<p class="lead" id="rankNote"></p>
+<div id="ranking"></div>
+</section>
+</main>
+<script>
+var P=[["Seguridad", "Cámaras, prevención, espacio público"], ["Movilidad y Metro", "Transporte público, tarifa, vías"], ["Agua, residuos y ambiente", "Basura, ríos, agua, quebradas"], ["Economía y empleo", "Trabajo, emprendimiento, turismo"], ["Gestión y transparencia", "Digitalización, datos abiertos, rendición"], ["Hábitat y vivienda", "Suelo, vivienda, regularización de barrios"], ["Inclusión, salud y educación", "Adulto mayor, cuidados, salud, educación municipal"]];
+var C=[{"n": "Galo Almeida", "p": "Centro Democrático", "e": ["Quito Seguro 360, centro integrado con ECU 911, videovigilancia, alarmas, iluminación.", "Meta: dejar financiada y en ejecución la extensión del Metro al norte hasta 2031; integración y centro de control de movilidad. Financiamiento: estructuración financiera y recursos nacionales e internacionales.", "Separación de residuos, compostaje, saneamiento, quebradas.", "Quito Emplea, bolsa de empleo, Quito Emprende, atracción de inversión. Meta de turismo: al menos 10 corredores turísticos y culturales hasta 2031.", "Meta: digitalizar el 100 % de trámites que pueden hacerse en línea; plataforma de datos única. Financiamiento: banco de proyectos y cooperantes.", "Modelo de gestión territorial y regularización de barrios; programa permanente de vivienda de interés social y repoblamiento. Financiamiento: alianzas público-privadas y mecanismos de financiamiento.", "Meta: modernizar el 100 % de instituciones educativas municipales; salud, protección social, deporte."], "f": ["avi", "avmic", "avi", "avmi", "avmic", "avic", "avmi"], "pg": 63, "sc": false, "pdf": "planes/plan-almeida.pdf"}, {"n": "Harold Burbano", "p": "ADN", "e": ["Territorios seguros 24/7, rutas seguras, agentes por territorio, sala de coordinación. Los indicadores solo dicen “aumentar” o “reducir”.", "Sistema integrado, plataforma única de información y pago, mantenimiento preventivo, programa Cero accidentes. Financiamiento: crédito de banca de desarrollo.", "Quebradas vivas, agua y drenaje, mantenimiento primero. Los residuos solo aparecen como fuente de financiamiento verde. Financiamiento: banca de desarrollo y financiamiento climático.", "Ventanilla empresarial, formalización acompañada, mercados, empleo con empresas y universidades.", "Expediente único, tablero Quito Cumple, presupuesto por resultados, IA con revisión humana. Financiamiento: banca de desarrollo y cooperación; revisión financiera en los primeros 100 días.", "Barrios completos, centralidades que acercan, patrimonio vivo con vivienda, Quito rural productivo. No define un programa específico de vivienda. Financiamiento: contribución de mejoras y gestión del suelo.", "No define programas para adultos mayores, discapacidad, salud o educación; solo habla de atender a quienes más lo necesitan."], "f": ["avi", "avic", "avic", "avi", "avipc", "avic", "g"], "pg": 18, "sc": true, "pdf": "planes/plan-burbano.pdf"}, {"n": "Paúl Desamblanc", "p": "Futuro", "e": ["Sistema Metropolitano Inteligente de Prevención y Convivencia, consejos zonales, línea base el primer año.", "Integración física, operacional y tarifaria del Metro con buses; Metrocable solo si los estudios lo justifican.", "Eje propio de ambiente, residuos y áreas verdes con plan por años.", "Ventanilla única del emprendedor, mercados, turismo, nodo logístico junto al aeropuerto.", "Eje 1: gobierno transparente, abierto y ágil; publicará criterios y resultados.", "No define programa de vivienda ni regularización; menciona centralidades y un estudio de prefactibilidad de suelo productivo.", "Red de salud preventiva, cuidados y protección de derechos; fortalecer 20 unidades educativas municipales y 14 CEMEI y ampliar cupos “progresivamente”."], "f": ["avip", "avp", "avip", "avp", "avip", "g", "avp"], "pg": 45, "sc": true, "pdf": "planes/plan-desamblanc.pdf"}, {"n": "César Díaz", "p": "Pueblo, Igualdad y Democracia", "e": ["Sala de Comando con cámaras y lectura de placas, red de rescate infantil. Meta: homicidios a un dígito por 100.000. Costo: USD 60–120 millones.", "Estudios de ramales del Metro, segundo túnel Guayasamín, pago unificado. Meta: viaje de 60 minutos o menos. Costo: USD 170–380 millones.", "Contenerización inteligente, descontaminar Machángara, Monjas y San Pedro. Costo: USD 70–155 millones.", "Simplificar trámites, zona de innovación y parque tecnológico en el aeropuerto. Costo: USD 45–100 millones.", "Portal de transparencia y trámites en línea. Meta: presupuesto participativo ejecutado al 100 % por polo. Costo: USD 25–50 millones.", "Megacentralidades, rehabilitación del Centro Histórico, vivienda de interés social, Regula tu barrio. Meta: seis megacentralidades en construcción. Costo: USD 70–140 millones.", "Universidad tecnológica para el sur, atención al adulto mayor, redes contra la violencia de género, accesibilidad universal. Costos: USD 35–70 y 38–76 millones."], "f": ["avmipc", "avmipc", "avipc", "avipc", "avmipc", "avmipc", "avic"], "pg": 22, "sc": true, "pdf": "planes/plan-diaz.pdf"}, {"n": "Bernardo Jijón", "p": "Sociedad Patriótica", "e": ["Meta: instalar los 8 Puestos de Mando pendientes en zonas de riesgo y bajar 20 % la violencia intrafamiliar; integrar cámaras privadas. Financiamiento: cámaras privadas a cambio de descuento en la tasa de seguridad.", "Autoridad Metropolitana de Transporte, pago por kilómetro, tarjeta única, semaforización adaptativa.", "Interceptores en Machángara y Monjas, alertas tempranas.", "Meta: licencias de actividad económica en 72 horas, con tasa cero el primer año en zonas de mayor informalidad. Financiamiento: suelo productivo mediante alianza público-privada.", "Meta: suprimir requisitos duplicados en los 5 trámites de mayor volumen; capa de datos municipal. Financiamiento: ahorro de gasto administrativo.", "Meta: 10.000 escrituras en tres años; expediente único de edificación; densificación suave. Financiamiento: pago compensatorio por edificabilidad a un Fondo de Espacio Público.", "Red de protección social hacia zonas rurales, salud mental comunitaria, cuidado y desarrollo infantil."], "f": ["avmipc", "avip", "avip", "avmipc", "avmipc", "avmipc", "avp"], "pg": 15, "sc": false, "pdf": "planes/plan-jijon.pdf"}, {"n": "Carla Larrea", "p": "CREO", "e": ["Escudo de videovigilancia integrado al ECU-911, recuperar espacio público, agentes de control modernizados, escuelas seguras. Primeros 100 días: recuperar el orden del espacio público.", "Autoridad única, una red y tarifa, pago por kilómetro. Meta: 100 km de aceras y 400 km de vialidad intervenida. Primeros 100 días: autoridad única. Financiamiento privado para el corredor Simón Bolívar.", "Complejo ambiental con alianza público-privada. Meta: reducir 15 % las pérdidas de agua en 4 años. Alianza público-privada con el BID.", "Agencia Conquito 2030, distritos de innovación, economía popular, ZEDE.", "Municipio digital, presupuesto por resultados, tablero público, informes semestrales. Meta: digitalizar “la mayoría” de trámites, sin cifra. Primeros 100 días: ventanilla única digital.", "Ciudad de 60 minutos y red policéntrica, licencias digitales, desarrollo junto al Metro, catastro. Meta: reducir al menos 50 % el tiempo de emisión de permisos.", "Envejecimiento activo, hospitales y colegios metropolitanos en los valles, centros del adulto mayor. Primeros 100 días: primeras intervenciones de envejecimiento activo."], "f": ["avip", "avmipc", "avmic", "avi", "avip", "avmi", "avip"], "pg": 15, "sc": false, "pdf": "planes/plan-larrea.pdf"}, {"n": "Wilson Merino", "p": "Imparables", "e": ["Centro Integrado de Seguridad, videovigilancia, Quito Iluminado, rutas seguras para mujeres, alerta temprana.", "Municipalización del transporte público, integración Metro–Trolebús–Ecovía–buses, Visión Cero.", "Programa especial para el río Machángara, Quito Circular, Recicladores Primero, Ciudad Esponja.", "Empleo Joven, Bolsa Metropolitana de Empleo, Mujeres Emprenden.", "Simplificación por procesos, portal de transparencia, sistema de seguimiento.", "Actualizar el PUGS, Observatorio del Territorio, catastro multipropósito, Banco de Suelo, regularización de barrios.", "Adultos Mayores Activos, Personas con Discapacidad Primero, Mujeres Liderando Quito, salud comunitaria."], "f": ["av", "av", "av", "av", "av", "av", "av"], "pg": 130, "sc": false, "pdf": "planes/plan-merino.pdf"}, {"n": "Pabel Muñoz", "p": "Alianza Ciudadana", "e": ["Datos y cámaras en tiempo real, presencia municipal en puntos críticos, CEJ y Juntas de Protección, alerta temprana.", "Red integrada de transporte, bacheo y aceras permanentes, gestión de velocidad.", "Complejo Ambiental, plantas de tratamiento rurales, interceptores, recuperación de quebradas.", "Economía popular innovadora, centralidades productivas, mercados, polígonos logísticos.", "Interoperabilidad, datos abiertos, sistema antisoborno, desconcentración. Habla de “la mayoría” de trámites en línea, sin cifra.", "Vivienda asequible y joven, desarrollo cerca del transporte, regularización de barrios, gestión del suelo según el PUGS.", "Política Metropolitana de Cuidados, plan contra la violencia de género, Quito Vuelve al Aula, educación dual, salud."], "f": ["av", "av", "av", "av", "av", "av", "av"], "pg": 93, "sc": false, "pdf": "planes/plan-munoz.pdf"}, {"n": "Linda Romero", "p": "Partido Social Cristiano", "e": ["Cámaras con IA integradas al ECU-911, alumbrado LED, corredores escolares seguros.", "Integración tarifaria y operacional, rediseño de rutas, pasos deprimidos, ciclovías.", "Protección de fuentes hídricas, quebradas, reciclaje, reducir pérdidas de agua.", "Ventanilla única de inversiones, licencias digitales, fondo de emprendimiento, mercados.", "Meta: digitalizar la totalidad de los trámites prioritarios; app única, datos abiertos, observatorio ciudadano.", "No define programa de vivienda, regularización ni suelo; la reducción de brechas territoriales aparece solo en el diagnóstico.", "Casas de la mujer, red psicosocial, centros juveniles (dentro del eje de seguridad); no hay programas de salud, educación ni adulto mayor."], "f": ["avi", "avi", "avi", "avi", "avmi", "g", "av"], "pg": 31, "sc": false, "pdf": "planes/plan-romero.pdf"}, {"n": "Jorge Yunda", "p": "Avanza", "e": ["Centro de Seguridad con IA, cámaras, alarmas comunitarias, app de emergencias, brigadas barriales.", "Semaforización inteligente, estacionamientos disuasivos, ciclovías, mantenimiento vial. No aparece tarifa única ni extensión del Metro.", "Plan de reforestación, recuperación de quebradas, protección de cuencas; residuos con verbos generales (“impulsar”).", "Capital semilla, ferias, modernizar mercados, compras a productores locales, incentivos a la inversión.", "Portal de trámites, Big Data e IA, presupuestos participativos, rendición de cuentas.", "No define programa de vivienda, regularización ni ordenamiento; los asentamientos irregulares solo aparecen al hablar de quebradas.", "Adulto mayor, discapacidad, primera infancia y brigadas de salud preventiva, siempre como “fortalecer y ampliar progresivamente”."], "f": ["av", "av", "av", "av", "av", "g", "av"], "pg": 41, "sc": false, "pdf": "planes/plan-yunda.pdf"}];
+var EX=[["Seguridad", "Centro de mando con cámaras integradas al ECU-911; programa de iluminación; alarmas comunitarias.", "Instalar 8 Puestos de Mando Operativo pendientes (Jijón). Tasa de homicidios a un dígito por 100.000 (Díaz)."], ["Movilidad y Metro", "Integración tarifaria entre Metro y buses; autoridad de transporte; semaforización inteligente.", "100 km de aceras y 400 km de vialidad intervenida (Larrea). Viaje de 60 minutos o menos entre zonas rurales y el centro (Díaz). Extensión del Metro al norte financiada y en ejecución hasta 2031 (Almeida)."], ["Agua, residuos y ambiente", "Plantas de tratamiento; interceptores en el Machángara; complejo ambiental de residuos.", "Reducir 15 % las pérdidas de agua en 4 años (Larrea)."], ["Economía y empleo", "Ventanilla única del emprendedor; bolsa de empleo; ferias y mercados.", "Licencias de actividad económica en 72 horas (Jijón)."], ["Gestión y transparencia", "Portal de datos abiertos; expediente único; tablero público de seguimiento.", "Digitalizar el 100 % de trámites que pueden hacerse en línea (Almeida). Suprimir requisitos duplicados en los 5 trámites de mayor volumen (Jijón). Presupuesto participativo ejecutado al 100 % por polo (Díaz)."], ["Hábitat y vivienda", "Programa de vivienda de interés social; regularización de barrios; catastro multipropósito; banco de suelo.", "10.000 escrituras en tres años (Jijón). Seis megacentralidades en construcción (Díaz). Reducir al menos 50 % el tiempo de emisión de permisos (Larrea)."], ["Inclusión, salud y educación", "Atención al adulto mayor; red de protección social; brigadas de salud preventiva; universidad para el sur.", "Modernizar el 100 % de instituciones educativas municipales (Almeida)."]];
+var CRIT={a:"Acción concreta",v:"3 o más acciones",m:"Meta con cifra",i:"Indicador",p:"Plazo propio",c:"Costo o financiamiento",g:"Solo mención"};
+function sc(f){return (f.indexOf("a")>-1?2:(f.indexOf("g")>-1?1:0))+(f.indexOf("v")>-1?2:0)+(f.indexOf("m")>-1?3:0)+(f.indexOf("i")>-1?1:0)+(f.indexOf("p")>-1?1:0)+(f.indexOf("c")>-1?1:0)}
+C.forEach(function(c){c.s=c.f.map(sc)});
+var S=C.map(function(c){return c.s.slice()});
+var CH=[], POOL=P.map(function(p,i){return i});
+for(var q=POOL.length-1;q>0;q--){var r=Math.floor(Math.random()*(q+1));var tmp=POOL[q];POOL[q]=POOL[r];POOL[r]=tmp;}
+var $=function(i){return document.getElementById(i)};
+function wts(){var w=P.map(function(){return 0});var n=CH.length;CH.forEach(function(pi,pos){w[pi]=n-pos});return w}
+function buildRank(focus){
+ var w=wts();
+ $("pool").innerHTML=POOL.filter(function(pi){return CH.indexOf(pi)<0}).map(function(pi){return '<button type="button" data-a="'+pi+'">+ '+P[pi][0]+'</button>'}).join("")||'<span class="empty">Ya elegiste todos los temas.</span>';
+ $("pool").querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){CH.push(+b.dataset.a);buildRank();render();});});
+ $("rkEmpty").style.display=CH.length?"none":"block";
+ $("rk").innerHTML=CH.map(function(pi,pos){return '<li><span class="n">'+(pos+1)+'</span><span class="t">'+P[pi][0]+'<small>'+P[pi][1]+'</small></span><span class="w">peso '+w[pi]+'</span><span class="b"><button type="button" id="u'+pos+'" data-p="'+pos+'" data-d="-1" aria-label="Subir '+P[pi][0]+'"'+(pos===0?' disabled':'')+'>▲</button><button type="button" id="d'+pos+'" data-p="'+pos+'" data-d="1" aria-label="Bajar '+P[pi][0]+'"'+(pos===CH.length-1?' disabled':'')+'>▼</button><button type="button" data-p="'+pos+'" data-d="0" aria-label="Quitar '+P[pi][0]+'">✕</button></span></li>';}).join("");
+ $("rk").querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){mv(+b.dataset.p,+b.dataset.d);});});
+ if(focus&&$(focus))$(focus).focus();
+}
+function mv(pos,d){if(d===0){CH.splice(pos,1);buildRank();render();return;}var t=pos+d;if(t<0||t>=CH.length)return;var x=CH[pos];CH[pos]=CH[t];CH[t]=x;buildRank((d<0?"u":"d")+t);render();}
+function buildTable(){
+ var h='<tr><th>Candidatura</th>'+P.map(function(p){return '<th>'+p[0]+'</th>'}).join("")+'</tr>';
+ C.forEach(function(c,r){h+='<tr><td>'+c.n+'</td>'+P.map(function(p,i){return '<td><input type="number" min="0" max="10" step="1" value="'+S[r][i]+'" aria-label="'+c.n+', '+p[0]+'" data-r="'+r+'" data-i="'+i+'"></td>'}).join("")+'</tr>';});
+ $("tbl").innerHTML=h;
+ $("tbl").querySelectorAll("input").forEach(function(el){el.addEventListener("input",function(e){var v=Math.max(0,Math.min(10,parseInt(e.target.value,10)||0));S[+e.target.dataset.r][+e.target.dataset.i]=v;render();});});
+}
+function buildEx(){
+ $("ex").innerHTML='<tr><th>Tema</th><th>Ejemplos de acción concreta</th><th>Ejemplos de meta con cifra</th></tr>'+EX.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>'}).join("");
+}
+function cnt(c,k){return c.f.filter(function(f){return f.indexOf(k)>-1}).length}
+function buildEv(){
+ $("ev").innerHTML=C.map(function(c){
+  var fi='Ficha del documento: '+c.pg+' páginas'+(c.sc?' (escaneado, leído con reconocimiento de texto)':'')+'. Temas con meta con cifra: '+cnt(c,"m")+' de 7. Con plazo propio: '+cnt(c,"p")+' de 7. Con costo o financiamiento: '+cnt(c,"c")+' de 7.';
+  return '<details class="sub"><summary>'+c.n+' ('+c.p+')</summary><dl>'+P.map(function(p,i){return '<dt>'+p[0]+' (nota '+c.s[i]+')</dt><dd>'+c.e[i]+'<div class="cr">Criterios cumplidos: '+c.f[i].split("").map(function(k){return CRIT[k]}).join(", ")+'</div></dd>'}).join("")+'<div class="fi">'+fi+'</div></dl>'+(c.pdf?'<a class="pdf" href="'+c.pdf+'" target="_blank" rel="noopener">Abrir copia del PDF del plan</a>':'')+'</details>';}).join("");
+}
+function render(){
+ var W=wts();var tot=W.reduce(function(a,b){return a+b},0);
+ if(!tot){$("rankNote").textContent="Elige al menos un tema en el paso 1 para ver los resultados.";$("ranking").innerHTML="";return;}
+ $("rankNote").textContent="El puntaje es el promedio de las notas en tus temas, con más peso para los primeros que elegiste. Si dos candidaturas tienen el mismo puntaje, comparten puesto y se muestran en orden alfabético.";
+ var res=C.map(function(c,r){var sum=0;P.forEach(function(p,i){sum+=W[i]*S[r][i]});return {c:c,r:r,score:Math.round(sum/(tot*10)*100)};}).sort(function(a,b){return b.score-a.score});
+ $("ranking").innerHTML=res.map(function(x){
+  var rk=1+res.filter(function(y){return y.score>x.score}).length;
+  var chips=CH.map(function(pi){return '<span>'+P[pi][0]+': '+S[x.r][pi]+'</span>'}).join("");
+  return '<div class="row"><div class="rank" aria-label="Puesto '+rk+'">'+rk+'</div><div><div class="top"><span><span class="name">'+x.c.n+'</span> <span class="party">'+x.c.p+'</span></span><span class="pts">'+x.score+' de 100</span></div><div class="track"><div class="fill" style="width:'+x.score+'%"></div></div><div class="chips">'+chips+'</div></div></div>';
+ }).join("");
+}
+$("resetW").addEventListener("click",function(){CH=[];buildRank();render();});
+$("resetS").addEventListener("click",function(){S=C.map(function(c){return c.s.slice()});buildTable();render();});
+buildRank();buildTable();buildEx();buildEv();render();
+</script>
+</body>
+</html>
